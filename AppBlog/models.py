@@ -14,4 +14,5 @@ class Post(models.Model):
     cuerpo= models.CharField(max_length=5000)
     autor= models.CharField(max_length=50)
     fecha= models.DateField()
+    imagen = models.ImageField(null=True, blank=True, upload_to="post")
     
