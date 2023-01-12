@@ -9,4 +9,4 @@ class PostForm(forms.Form):
     cuerpo= forms.CharField(label="Cuerpo Post", max_length=5000)
     autor= forms.CharField(label="Autor Post", max_length=50)
     fecha= forms.DateField(label="Fecha Post")
-    
+        
