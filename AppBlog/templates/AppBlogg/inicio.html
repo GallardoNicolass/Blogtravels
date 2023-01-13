@@ -8,5 +8,22 @@
 {% endblock %}
 
 {% block contenido_que_cambia %}
-<h1>ESTE ES EL CONTENIDO QUE CAMBIO!</h1>
+<h1>Bienvenidos a inicio aqui podras ver todas las publicaciones</h1>
+<section>
+    {% for post in publicaciones %}
+        <article>
+            <h3>{{ post.titulo }}</h3>
+            <h5>{{ post.subtitulo }}</h5>
+            <p>
+                {{ post.cuerpo }}
+            </p>
+            <img src="{{ imagen }}"
+            <footer>
+                Autor: {{ post.autor }}
+            </footer>
+            
+
+        </article>
+    {% endfor %}
+</section>
 {% endblock %}

@@ -5,6 +5,8 @@ from AppBlog.forms import *
 from django.contrib.auth.forms import  AuthenticationForm, UserCreationForm
 from django.contrib.auth import login,logout, authenticate
 from django.contrib.auth.decorators import login_required
+from AppBlog.models import Post
+
 
 @login_required
 def posts(request):
@@ -13,7 +15,8 @@ def posts(request):
 
 @login_required
 def inicio(request):
-    return render(request, "AppBlogg/inicio.html")
+    publicaciones = Post.objects.all()
+    return render(request, "AppBlogg/inicio.html", {"publicaciones":publicaciones})
 
 @login_required
 def perfil(request):
