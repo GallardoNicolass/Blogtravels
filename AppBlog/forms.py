@@ -9,4 +9,17 @@ class PostForm(forms.Form):
     cuerpo= forms.CharField(label="Cuerpo Post", max_length=5000)
     autor= forms.CharField(label="Autor Post", max_length=50)
     fecha= forms.DateField(label="Fecha Post")
+    imagen= forms.URLField(label="imagen")
+
+
+class RegistroUsuarioForm(UserCreationForm):
+
+    email= forms.EmailField(label="Email")
+    password1= forms.CharField(label="Contraseña", widget=forms.PasswordInput)
+    password2= forms.CharField(label="Confirmar Contraseña", widget=forms.PasswordInput)
+
+    class Meta:
+        model=User
+        fields=["username", "email", "password1", "password2"]
+        help_texts = {k:"" for k in fields}
         

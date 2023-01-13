@@ -15,15 +15,22 @@
     </head>
     <body>
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <nav class="navbar navbar-light bg-light static-top">
                     <div class="container">
                         <a class="btn btn-dark" href="{% url 'inicio' %}">INICIO</a>
-                        
+                        {% if user.is_authenticated %}
                         <a class="btn btn-dark" href="{% url 'leerPosts' %}">Posts</a>
                         <a class="btn btn-dark" href="{% url 'perfil' %}">Perfil</a>
                         <a class="btn btn-dark" href="{% url 'about' %}">About</a>
+                        <p>Bienvenido: {{ user.username }}</p>
+                        <a class="btn btn-danger" href="{% url 'logout' %}">CERRAR SESION</a>
+                        {% else %}
+                        <a class="btn btn-dark" href="{% url 'register' %}">REGISTRO</a>
+                        <a class="btn btn-dark" href="{% url 'login' %}">INGRESAR</a>
+                        {% endif %}
+                        
                         
                     </ul>
                 </div>
@@ -43,10 +50,7 @@
 
                             {% endblock %}
                             <!-- Post meta content-->
-                            <div class="text-muted fst-italic mb-2">Posted on January 1, 2022 by Start Bootstrap</div>
-                            <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                            
                         </header>
                         {% block contenido_que_cambia %}
 
@@ -103,12 +107,8 @@
                 <!-- Side widgets-->
                 <div class="col-lg-4">
                     <!-- Search widget-->
-                    <div class="card mb-4">
-                        <div class="card-header">Search</div>
-                        <div class="card-body">
-                            <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-                                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                    
+                                
                             </div>
                         </div>
                     </div>
