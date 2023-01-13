@@ -17,8 +17,11 @@
             <p>
                 {{ post.cuerpo }}
             </p>
-            <img src="{{ imagen }}"
+            <img src="{{ post.imagen }}"
+            width="400px"
+            alt="">
             <footer>
+                fecha: {{ post.fecha }}
                 Autor: {{ post.autor }}
             </footer>
             

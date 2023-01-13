@@ -16,7 +16,7 @@ class Post(models.Model):
     cuerpo= models.TextField(max_length=5000)
     autor= models.CharField(max_length=50)
     fecha= models.DateField()
-    imagen = models.URLField()
+    imagen = models.URLField(max_length=700)
 
     def __str__(self):
         return self.titulo
