@@ -79,24 +79,24 @@ def eliminarPost(request, id):
 
 @login_required
 def editarPost(request, id):
-    post=Post.objects.get(id=id)
+    postt=Post.objects.get(id=id)
     if request.method=="POST":
         form= PostForm(request.POST)
         if form.is_valid():
-            info=form.changed_data
-            post.titulo=info["titulo"]
-            post.subtitulo=info["subtitulo"]
-            post.cuerpo=info["cuerpo"]
-            post.autor=info["autor"]
-            post.fecha=info["fecha"]
-            post.imagen=info["imagen"]
-            post.save()
+            info=form.cleaned_data
+            postt.titulo=info["titulo"]
+            postt.subtitulo=info["subtitulo"]
+            postt.cuerpo=info["cuerpo"]
+            postt.autor=info["autor"]
+            postt.fecha=info["fecha"]
+            postt.imagen=info["imagen"]
+            postt.save()
             posts=Post.objects.all()
             return render(request, "AppBlogg/posts.html", {"posts":posts, "mensaje": "post editado correctamente"})
         pass
     else:
-        formulario=PostForm(initial={"titulo":post.titulo, "subtitulo":post.subtitulo, "cuerpo":post.cuerpo, "autor":post.autor, "fecha":post.fecha, "imagen":post.imagen})
-        return render(request, "AppBlogg/editarPost.html", {"form":formulario, "post":post})
+        formulario=PostForm(initial={"titulo":postt.titulo, "subtitulo":postt.subtitulo, "cuerpo":postt.cuerpo, "autor":postt.autor, "fecha":postt.fecha, "imagen":postt.imagen})
+        return render(request, "AppBlogg/editarPost.html", {"form":formulario, "post":postt})
 
 
 
@@ -152,6 +152,14 @@ def editarPerfil(request):
     else:
         form=UserEditForm(instance=usuario)
         return render(request, "AppBlogg/editarPerfil.html", {"form": form, "nombreusuario":usuario.username})
+
+
+@login_required
+def leerPerfil(request, id):
+    perfil=Usuari.objects.get(id=id)
+    
+
+    return render(request, "AppBlogg/perfil.html", {"perfil": perfil})
 
 
 

@@ -9,7 +9,16 @@
 
 {% block contenido_que_cambia %}
 <h1>ESTE ES TU PERFIL!</h1>
+<section>
+    {% for perfil in perfiles %}
+        
+        <h3>{{ usuari.username }}</h3>
+        <h5>{{ usuari.email }}</h5>
+            
+            
 
+        
+    {% endfor %}
 <h3>{{ mensaje }}</h3>
 
 {% endblock %}

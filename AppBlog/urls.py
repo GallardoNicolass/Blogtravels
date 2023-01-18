@@ -14,6 +14,7 @@ urlpatterns = [
     path("buscar/", buscar, name="buscar"),
     
     
+    
     path("leerPosts/", leerPosts, name="leerPosts"),
     path("eliminarPost/<id>", eliminarPost, name="eliminarPost"),
     path("editarPost/<id>", editarPost, name="editarPost"),
@@ -22,6 +23,7 @@ urlpatterns = [
     path("register/", register, name="register"),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('editarPerfil/', editarPerfil, name='editarPerfil'),
+    path('leerPerfil/', leerPerfil, name="leerPerfil"),
 
 
 ]

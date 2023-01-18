@@ -13,6 +13,7 @@
 <form action="{% url 'postFormulario' %}" method="POST"> {% csrf_token %}
 
     <table>
+        {{ form.media}}
         {{ form.as_p}}
     </table>
     
